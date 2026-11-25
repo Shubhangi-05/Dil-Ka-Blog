@@ -1,12 +1,15 @@
 
 import { Button, Stack, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import type { Blog } from "../../../blog/types/blog.types";
 import type { Post } from "../../../blog/types/post.types";
+import type { PostTranslation } from "../../../blog/types/translation.types";
 
 import PoetryHeader from "../components/PoetryHeader";
 import PoetryFooter from "../components/PoetryFooter";
+import ContentLanguageLabel from "../../../../components/common/ContentLanguageLabel";
 
 import {
   AllPostsContainer,
@@ -15,13 +18,20 @@ import {
   RecentPostTitle,
 } from "../styles/poetry.styles";
 
+interface LocalizedPost {
+  post: Post;
+  translation: PostTranslation;
+  isFallback: boolean;
+}
+
 interface PoetryPostsPageProps {
   blog: Blog;
-  posts: Post[];
+  posts: LocalizedPost[];
 }
 
 function PoetryPostsPage({ blog, posts }: PoetryPostsPageProps) {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   const handleReadMore = (postSlug: string) => {
     navigate(`/blog/${blog.slug}/posts/${postSlug}`);
@@ -33,32 +43,37 @@ function PoetryPostsPage({ blog, posts }: PoetryPostsPageProps) {
 
       <AllPostsContainer>
         <Typography variant="overline" color="primary">
-          THE COLLECTION
+          {t("navigation.posts")}
         </Typography>
 
         <Typography variant="h3" sx={{ mt: 1 }}>
-          सभी रचनाएँ
+          {t("navigation.posts")}
         </Typography>
 
         <Typography color="text.secondary" sx={{ mt: 2 }}>
-          कुछ ख़याल, कुछ एहसास और कुछ अनकही कहानियाँ।
+          {t("messages.postsDescription")}
         </Typography>
 
         <AllPostsGrid>
-          {posts.map((post) => (
+          {posts.map(({ post, translation, isFallback }) => (
             <RecentPostCard key={post.id}>
               <Typography variant="caption" color="text.secondary">
-                {post.publishedAt
-                  ? new Date(post.publishedAt).toLocaleDateString()
-                  : "Draft"}
+                {post.publishedAt &&
+                  new Date(post.publishedAt).toLocaleDateString(
+                    i18n.resolvedLanguage ?? "en"
+                  )}
               </Typography>
 
+              {isFallback && (
+                <ContentLanguageLabel language={translation.language} />
+              )}
+
               <RecentPostTitle>
-                {post.title}
+                {translation.title}
               </RecentPostTitle>
 
               <Typography color="text.secondary">
-                {post.excerpt}
+                {translation.excerpt}
               </Typography>
 
               <Stack direction="row" sx={{ flexWrap: "wrap", gap: 1 }}>
@@ -78,7 +93,7 @@ function PoetryPostsPage({ blog, posts }: PoetryPostsPageProps) {
                 sx={{ alignSelf: "flex-start" }}
                 onClick={() => handleReadMore(post.slug)}
               >
-                पूरी रचना पढ़ें →
+                {t("actions.readFullPost")} →
               </Button>
             </RecentPostCard>
           ))}

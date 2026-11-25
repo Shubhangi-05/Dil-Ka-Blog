@@ -1,16 +1,21 @@
+
+import type {
+  SupportedLanguage,
+  BlogTranslation,
+} from "./translation.types";
+
 export type BlogTemplate = "poetry" | "technical" | "journal";
 
 export interface Blog {
   id: string;
   ownerId: string;
 
-  name: string;
   slug: string;
-  description: string;
-
   template: BlogTemplate;
 
-  about: string;
+  defaultLanguage: SupportedLanguage;
+
+  translations: BlogTranslation[];
 
   createdAt: string;
   updatedAt: string;

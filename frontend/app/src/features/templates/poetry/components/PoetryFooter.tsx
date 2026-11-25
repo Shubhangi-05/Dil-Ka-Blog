@@ -1,8 +1,13 @@
 
 import { Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import type { Blog } from "../../../blog/types/blog.types";
+import type { SupportedLanguage } from "../../../blog/types/translation.types";
+
+import { getLocalizedBlog } from "../../../blog/utils/getLocalizedBlog";
+import ContentLanguageLabel from "../../../../components/common/ContentLanguageLabel";
 
 import {
   PoetryFooterRoot,
@@ -16,23 +21,39 @@ interface PoetryFooterProps {
 
 function PoetryFooter({ blog }: PoetryFooterProps) {
   const basePath = `/blog/${blog.slug}`;
+  const { t, i18n } = useTranslation();
+
+  const selectedLanguage =
+    (i18n.resolvedLanguage ?? "en") as SupportedLanguage;
+
+  const { translation, isFallback } = getLocalizedBlog(
+    blog,
+    selectedLanguage
+  );
+
+  const blogName = translation?.name ?? blog.slug;
+  const blogDescription = translation?.description ?? "";
 
   return (
     <PoetryFooterRoot>
       <PoetryFooterContainer>
         <Stack spacing={2} sx={{ maxWidth: 400 }}>
           <Typography variant="h5" sx={{ fontWeight: 600 }}>
-            {blog.name}
+            {blogName}
           </Typography>
 
+          {isFallback && translation && (
+            <ContentLanguageLabel language={translation.language} />
+          )}
+
           <Typography sx={{ color: "#C8BDB4", lineHeight: 1.8 }}>
-            {blog.description}
+            {blogDescription}
           </Typography>
         </Stack>
 
         <Stack spacing={2}>
           <Typography sx={{ fontWeight: 600 }}>
-            Explore
+            {t("labels.explore")}
           </Typography>
 
           <Typography
@@ -41,7 +62,7 @@ function PoetryFooter({ blog }: PoetryFooterProps) {
             color="inherit"
             sx={{ textDecoration: "none" }}
           >
-            Home
+            {t("navigation.home")}
           </Typography>
 
           <Typography
@@ -50,7 +71,7 @@ function PoetryFooter({ blog }: PoetryFooterProps) {
             color="inherit"
             sx={{ textDecoration: "none" }}
           >
-            Posts
+            {t("navigation.posts")}
           </Typography>
 
           <Typography
@@ -59,18 +80,18 @@ function PoetryFooter({ blog }: PoetryFooterProps) {
             color="inherit"
             sx={{ textDecoration: "none" }}
           >
-            About
+            {t("navigation.about")}
           </Typography>
         </Stack>
       </PoetryFooterContainer>
 
       <PoetryFooterBottom>
         <Typography variant="caption" sx={{ color: "#C8BDB4" }}>
-          © {new Date().getFullYear()} {blog.name}
+          © {new Date().getFullYear()} {blogName}
         </Typography>
 
         <Typography variant="caption" sx={{ color: "#C8BDB4" }}>
-          {blog.description}
+          {blogDescription}
         </Typography>
       </PoetryFooterBottom>
     </PoetryFooterRoot>

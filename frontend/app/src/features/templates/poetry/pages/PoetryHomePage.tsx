@@ -1,6 +1,6 @@
 
 import type { Blog } from "../../../blog/types/blog.types";
-import type { Post } from "../../../blog/types/post.types";
+import type { LocalizedPost } from "../../../blog/types/post.types";
 
 import PoetryHeader from "../components/PoetryHeader";
 import PoetryHero from "../components/PoetryHero";
@@ -11,12 +11,17 @@ import PoetryFooter from "../components/PoetryFooter";
 
 interface PoetryHomePageProps {
   blog: Blog;
-  posts: Post[];
+  posts: LocalizedPost[];
 }
 
 function PoetryHomePage({ blog, posts }: PoetryHomePageProps) {
-  const featuredPost = posts.find((post) => post.isFeatured);
-  const recentPosts = posts.filter((post) => !post.isFeatured);
+  const featuredPost = posts.find(
+    (item) => item.post.isFeatured
+  );
+
+  const recentPosts = posts.filter(
+    (item) => !item.post.isFeatured
+  );
 
   return (
     <>
@@ -25,12 +30,21 @@ function PoetryHomePage({ blog, posts }: PoetryHomePageProps) {
       <PoetryHero blog={blog} />
 
       {featuredPost && (
-        <FeaturedPost post={featuredPost} blog={blog} />
+        <FeaturedPost
+          localizedPost={featuredPost}
+          blog={blog}
+        />
       )}
 
-      <RecentPosts posts={recentPosts} blog={blog} />
+      <RecentPosts
+        posts={recentPosts}
+        blog={blog}
+      />
 
-      <AboutCategories blog={blog} posts={posts} />
+      <AboutCategories
+        blog={blog}
+        posts={posts}
+      />
 
       <PoetryFooter blog={blog} />
     </>

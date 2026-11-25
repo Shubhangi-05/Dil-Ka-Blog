@@ -1,12 +1,14 @@
 
 import { Stack, Typography, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import type { Blog } from "../../../blog/types/blog.types";
-import type { Post } from "../../../blog/types/post.types";
+import type { LocalizedPost } from "../../../blog/types/post.types";
 
 import PoetryHeader from "../components/PoetryHeader";
 import PoetryFooter from "../components/PoetryFooter";
+import ContentLanguageLabel from "../../../../components/common/ContentLanguageLabel";
 
 import {
   AllPostsContainer,
@@ -18,11 +20,12 @@ import {
 interface PoetryTagPageProps {
   blog: Blog;
   tag: string;
-  posts: Post[];
+  posts: LocalizedPost[];
 }
 
 function PoetryTagPage({ blog, tag, posts }: PoetryTagPageProps) {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
 
   const handleReadMore = (postSlug: string) => {
     navigate(`/blog/${blog.slug}/posts/${postSlug}`);
@@ -34,7 +37,7 @@ function PoetryTagPage({ blog, tag, posts }: PoetryTagPageProps) {
 
       <AllPostsContainer>
         <Typography variant="overline" color="primary">
-          EXPLORE BY TOPIC
+          {t("labels.exploreByTopic")}
         </Typography>
 
         <Typography variant="h3" sx={{ mt: 1 }}>
@@ -42,21 +45,21 @@ function PoetryTagPage({ blog, tag, posts }: PoetryTagPageProps) {
         </Typography>
 
         <Typography color="text.secondary" sx={{ mt: 2 }}>
-          रचनाएँ और विचार — {tag}
+          {t("messages.postsForTopic", { tag })}
         </Typography>
 
         {posts.length === 0 ? (
           <Typography sx={{ mt: 5 }} color="text.secondary">
-            इस विषय पर अभी कोई रचना उपलब्ध नहीं है।
+            {t("messages.noPostsForTopic")}
           </Typography>
         ) : (
           <AllPostsGrid>
-            {posts.map((post) => (
+            {posts.map(({ post, translation, isFallback }) => (
               <RecentPostCard key={post.id}>
                 <Typography variant="caption" color="text.secondary">
                   {post.publishedAt
                     ? new Date(post.publishedAt).toLocaleDateString(
-                        "en-IN",
+                        i18n.resolvedLanguage ?? "en",
                         {
                           day: "numeric",
                           month: "long",
@@ -66,12 +69,16 @@ function PoetryTagPage({ blog, tag, posts }: PoetryTagPageProps) {
                     : ""}
                 </Typography>
 
+                {isFallback && (
+                  <ContentLanguageLabel language={translation.language} />
+                )}
+
                 <RecentPostTitle>
-                  {post.title}
+                  {translation.title}
                 </RecentPostTitle>
 
                 <Typography color="text.secondary">
-                  {post.excerpt}
+                  {translation.excerpt}
                 </Typography>
 
                 <Stack direction="row" sx={{ flexWrap: "wrap", gap: 1 }}>
@@ -91,7 +98,7 @@ function PoetryTagPage({ blog, tag, posts }: PoetryTagPageProps) {
                   sx={{ alignSelf: "flex-start" }}
                   onClick={() => handleReadMore(post.slug)}
                 >
-                  पूरी रचना पढ़ें →
+                  {t("actions.readFullPost")} →
                 </Button>
               </RecentPostCard>
             ))}

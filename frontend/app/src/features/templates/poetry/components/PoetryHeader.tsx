@@ -1,3 +1,4 @@
+
 import {
   HeaderRoot,
   HeaderContainer,
@@ -5,64 +6,65 @@ import {
   Navigation,
   NavigationLink,
   LanguageContainer,
-  LanguageButton,
 } from "../styles/poetry.styles";
 
-import { Button } from "@mui/material";
 import type { Blog } from "../../../blog/types/blog.types";
+import type { SupportedLanguage } from "../../../blog/types/translation.types";
+
+import { useTranslation } from "react-i18next";
+import { getLocalizedBlog } from "../../../blog/utils/getLocalizedBlog";
+
+import LanguageSwitcher from "../../../../components/common/LanguageSwitcher";
+import ContentLanguageLabel from "../../../../components/common/ContentLanguageLabel";
 
 interface PoetryHeaderProps {
   blog: Blog;
 }
 
 function PoetryHeader({ blog }: PoetryHeaderProps) {
-  // Keep your existing header JSX.
-
   const basePath = `/blog/${blog.slug}`;
+  const { t, i18n } = useTranslation();
+
+  const selectedLanguage =
+    (i18n.resolvedLanguage ?? "en") as SupportedLanguage;
+
+  const { translation, isFallback } = getLocalizedBlog(
+    blog,
+    selectedLanguage
+  );
 
   return (
     <HeaderRoot>
       <HeaderContainer>
-
-        {/* Blog Name */}
         <BlogName to={basePath}>
-          {blog.name}
+          {translation?.name ?? blog.slug}
         </BlogName>
 
-        {/* Navigation */}
+        {isFallback && translation && (
+          <ContentLanguageLabel language={translation.language} />
+        )}
+
         <Navigation>
           <NavigationLink to={basePath}>
-            मुखपृष्ठ
+            {t("navigation.home")}
           </NavigationLink>
 
           <NavigationLink to={`${basePath}/posts`}>
-            कविताएँ
+            {t("navigation.posts")}
           </NavigationLink>
 
           <NavigationLink to={`${basePath}/tags/विचार`}>
-            विचार
+            {t("navigation.categories")}
           </NavigationLink>
 
           <NavigationLink to={`${basePath}/about`}>
-            परिचय
+            {t("navigation.about")}
           </NavigationLink>
         </Navigation>
 
-        {/* Language Selector */}
         <LanguageContainer>
-          <LanguageButton variant="contained">
-            हि
-          </LanguageButton>
-
-          <Button
-            variant="text"
-            color="inherit"
-            size="small"
-          >
-            EN
-          </Button>
+          <LanguageSwitcher />
         </LanguageContainer>
-
       </HeaderContainer>
     </HeaderRoot>
   );
