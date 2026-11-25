@@ -1,0 +1,39 @@
+{
+    "navigation": {
+        "home": "मुखपृष्ठ",
+        "posts": "रचनाएँ",
+        "about": "परिचय",
+        "categories": "श्रेणियाँ",
+        "recentPosts": "हाल की रचनाएँ"
+    },
+    "actions": {
+        "readMore": "आगे पढ़ें",
+        "readFullPost": "पूरी रचना पढ़ें",
+        "goHome": "होम पर जाएँ",
+        "save": "सहेजें",
+        "cancel": "रद्द करें",
+        "readLatestPost": "ताज़ा रचना पढ़ें"
+    },
+    "messages": {
+        "pageNotFound": "पेज नहीं मिला",
+        "noPosts": "अभी कोई रचना उपलब्ध नहीं है।",
+        "comingSoon": "यह टेम्पलेट जल्द उपलब्ध होगा।",
+        "postsDescription": "कुछ ख़याल, कुछ एहसास और कुछ अनकही कहानियाँ।",
+        "blogContentUnavailable": "ब्लॉग की सामग्री अभी उपलब्ध नहीं है।",
+        "postsForTopic": "{{tag}} से जुड़ी रचनाएँ और विचार",
+        "noPostsForTopic": "इस विषय पर अभी कोई रचना उपलब्ध नहीं है।"
+    },
+    "language": {
+        "english": "अंग्रेज़ी",
+        "hindi": "हिंदी"
+    },
+    "contentLanguage": {
+        "original": "मूल रचना"
+    },
+    "labels": {
+        "featuredStory": "विशेष रचना",
+        "poetrySubtitle": "कविताएँ और विचार",
+        "explore": "अन्वेषण करें",
+        "exploreByTopic": "विषय के अनुसार देखें"
+    }
+}

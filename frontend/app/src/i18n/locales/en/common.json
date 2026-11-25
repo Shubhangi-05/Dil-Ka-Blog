@@ -1,0 +1,39 @@
+{
+    "navigation": {
+        "home": "Home",
+        "posts": "Posts",
+        "about": "About",
+        "categories": "Categories",
+        "recentPosts": "Recent Posts"
+    },
+    "actions": {
+        "readMore": "Read More",
+        "readFullPost": "Read Full Post",
+        "goHome": "Go to Home",
+        "save": "Save",
+        "cancel": "Cancel",
+        "readLatestPost": "Read the latest post"
+    },
+    "messages": {
+        "pageNotFound": "Page not found",
+        "noPosts": "No posts available yet.",
+        "comingSoon": "This template is coming soon.",
+        "postsDescription": "Thoughts, feelings and stories worth sharing.",
+        "blogContentUnavailable": "Blog content is currently unavailable.",
+        "postsForTopic": "Posts and thoughts about {{tag}}",
+        "noPostsForTopic": "No posts are available for this topic yet."
+    },
+    "language": {
+        "english": "English",
+        "hindi": "Hindi"
+    },
+    "contentLanguage": {
+        "original": "Original"
+    },
+    "labels": {
+        "featuredStory": "FEATURED STORY",
+        "poetrySubtitle": "Poetry and thoughts",
+        "explore": "Explore",
+        "exploreByTopic": "EXPLORE BY TOPIC"
+    }
+}

@@ -1,11 +1,11 @@
 import type { Blog } from "../types/blog.types";
-import type { Post } from "../types/post.types";
+import type { LocalizedPost } from "../types/post.types";
 
 import PoetryHomePage from "../../templates/poetry/pages/PoetryHomePage";
 
 interface BlogRendererProps {
   blog: Blog;
-  posts: Post[];
+  posts: LocalizedPost[];
 }
 
 function BlogRenderer({ blog, posts }: BlogRendererProps) {
