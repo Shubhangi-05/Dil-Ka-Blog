@@ -8,6 +8,7 @@ import { mockBlogs } from "../data/mockBlogs";
 import { mockPosts } from "../data/mockPosts";
 
 import PoetryPostsPage from "../../templates/poetry/pages/PoetryPostsPage";
+import TechnicalPostsPage from "../../templates/technical/pages/TechnicalPostsPage";
 
 function BlogPostsPage() {
   const { blogSlug } = useParams();
@@ -54,6 +55,7 @@ function BlogPostsPage() {
       return <PoetryPostsPage blog={blog} posts={localizedPosts} />;
 
     case "technical":
+      return <TechnicalPostsPage blog={blog} posts={localizedPosts} />
     case "journal":
       return <div>This template is coming soon.</div>;
 

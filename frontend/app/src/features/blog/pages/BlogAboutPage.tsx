@@ -4,6 +4,7 @@ import { useParams, Navigate } from "react-router-dom";
 import { mockBlogs } from "../data/mockBlogs";
 
 import PoetryAboutPage from "../../templates/poetry/pages/PoetryAboutPage";
+import TechnicalAboutPage from "../../templates/technical/pages/TechnicalAboutPage";
 
 function BlogAboutPage() {
   const { blogSlug } = useParams();
@@ -21,6 +22,7 @@ function BlogAboutPage() {
       return <PoetryAboutPage blog={blog} />;
 
     case "technical":
+      return <TechnicalAboutPage blog={blog} />
     case "journal":
       return <div>This template is coming soon.</div>;
 
