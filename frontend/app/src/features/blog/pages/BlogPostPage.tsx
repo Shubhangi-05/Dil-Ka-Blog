@@ -9,6 +9,7 @@ import { mockBlogs } from "../data/mockBlogs";
 import { mockPosts } from "../data/mockPosts";
 
 import PoetryPostPage from "../../templates/poetry/pages/PoetryPostPage";
+import TechnicalPostPage from "../../templates/technical/pages/TechnicalPostPage";
 
 function BlogPostPage() {
   const { blogSlug, postSlug } = useParams();
@@ -57,6 +58,9 @@ function BlogPostPage() {
       );
 
     case "technical":
+      return (
+        <TechnicalPostPage blog={blog} post={post} translation={translation} isFallback={isFallback} />
+      );
     case "journal":
       return <div>This template is coming soon.</div>;
 

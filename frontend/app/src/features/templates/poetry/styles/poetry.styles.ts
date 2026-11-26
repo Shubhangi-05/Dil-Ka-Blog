@@ -329,3 +329,16 @@ export const AboutPageContent = styled(Typography)({
   lineHeight: 2.2,
   whiteSpace: "pre-line",
 });
+
+export const footerLinkStyles = {
+  color: "#C8BDB4",
+  textDecoration: "none",
+  transition: "color 0.2s ease",
+  "&:hover": {
+    color: "#FFFFFF",
+  },
+  "&.active": {
+    color: "#F2BFA5",
+    fontWeight: 700,
+  },
+};

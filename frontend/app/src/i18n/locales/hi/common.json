@@ -12,7 +12,9 @@
         "goHome": "होम पर जाएँ",
         "save": "सहेजें",
         "cancel": "रद्द करें",
-        "readLatestPost": "ताज़ा रचना पढ़ें"
+        "readLatestPost": "ताज़ा रचना पढ़ें",
+        "exploreArticles": "लेख पढ़ें",
+        "readArticle": "लेख पढ़ें"
     },
     "messages": {
         "pageNotFound": "पेज नहीं मिला",
@@ -21,7 +23,9 @@
         "postsDescription": "कुछ ख़याल, कुछ एहसास और कुछ अनकही कहानियाँ।",
         "blogContentUnavailable": "ब्लॉग की सामग्री अभी उपलब्ध नहीं है।",
         "postsForTopic": "{{tag}} से जुड़ी रचनाएँ और विचार",
-        "noPostsForTopic": "इस विषय पर अभी कोई रचना उपलब्ध नहीं है।"
+        "noPostsForTopic": "इस विषय पर अभी कोई रचना उपलब्ध नहीं है।",
+        "allArticlesDescription": "सॉफ्टवेयर इंजीनियरिंग और टेक्नोलॉजी से जुड़े लेख, ट्यूटोरियल और विचार पढ़ें।",
+        "poweredBy": "Dil Ka Blog द्वारा संचालित"
     },
     "language": {
         "english": "अंग्रेज़ी",
@@ -34,6 +38,11 @@
         "featuredStory": "विशेष रचना",
         "poetrySubtitle": "कविताएँ और विचार",
         "explore": "अन्वेषण करें",
-        "exploreByTopic": "विषय के अनुसार देखें"
+        "exploreByTopic": "विषय के अनुसार देखें",
+        "technicalSubtitle": "इंजीनियरिंग · सॉफ्टवेयर · टेक्नोलॉजी",
+        "featuredArticle": "विशेष लेख",
+        "latestArticles": "नवीनतम लेख",
+        "article": "लेख",
+        "topics": "विषय"
     }
 }
