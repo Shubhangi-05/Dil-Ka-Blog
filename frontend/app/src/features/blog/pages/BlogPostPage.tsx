@@ -10,6 +10,7 @@ import { mockPosts } from "../data/mockPosts";
 
 import PoetryPostPage from "../../templates/poetry/pages/PoetryPostPage";
 import TechnicalPostPage from "../../templates/technical/pages/TechnicalPostPage";
+import JournalPostPage from "../../templates/journal/pages/JournalPostPage";
 
 function BlogPostPage() {
   const { blogSlug, postSlug } = useParams();
@@ -62,7 +63,7 @@ function BlogPostPage() {
         <TechnicalPostPage blog={blog} post={post} translation={translation} isFallback={isFallback} />
       );
     case "journal":
-      return <div>This template is coming soon.</div>;
+      return <JournalPostPage blog={blog} post={post} translation={translation} isFallback={isFallback}/>;
 
     default:
       return <div>Unsupported blog template.</div>;

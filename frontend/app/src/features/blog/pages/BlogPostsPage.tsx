@@ -9,6 +9,7 @@ import { mockPosts } from "../data/mockPosts";
 
 import PoetryPostsPage from "../../templates/poetry/pages/PoetryPostsPage";
 import TechnicalPostsPage from "../../templates/technical/pages/TechnicalPostsPage";
+import JournalPostsPage from "../../templates/journal/pages/JournalPostsPage";
 
 function BlogPostsPage() {
   const { blogSlug } = useParams();
@@ -57,7 +58,7 @@ function BlogPostsPage() {
     case "technical":
       return <TechnicalPostsPage blog={blog} posts={localizedPosts} />
     case "journal":
-      return <div>This template is coming soon.</div>;
+      return <JournalPostsPage blog={blog} posts={localizedPosts}/>;
 
     default:
       return <div>Unsupported blog template.</div>;

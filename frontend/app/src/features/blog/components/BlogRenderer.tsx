@@ -3,6 +3,7 @@ import type { LocalizedPost } from "../types/post.types";
 
 import PoetryHomePage from "../../templates/poetry/pages/PoetryHomePage";
 import TechnicalHomePage from "../../templates/technical/pages/TechnicalHomePage";
+import JournalHomePage from "../../templates/journal/pages/JournalHomePage";
 
 interface BlogRendererProps {
   blog: Blog;
@@ -18,7 +19,7 @@ function BlogRenderer({ blog, posts }: BlogRendererProps) {
       return <TechnicalHomePage blog={blog} posts={posts} />;
 
     case "journal":
-      return <div>This template is coming soon.</div>;
+      return <JournalHomePage blog={blog} posts={posts}/>;
 
     default:
       return <div>Unsupported blog template.</div>;
