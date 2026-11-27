@@ -14,7 +14,8 @@
         "cancel": "Cancel",
         "readLatestPost": "Read the latest post",
         "exploreArticles": "Explore Articles",
-        "readArticle": "Read Article"
+        "readArticle": "Read Article",
+        "viewAllPosts": "View all posts"
     },
     "messages": {
         "pageNotFound": "Page not found",
@@ -25,7 +26,8 @@
         "postsForTopic": "Posts and thoughts about {{tag}}",
         "noPostsForTopic": "No posts are available for this topic yet.",
         "allArticlesDescription": "Explore articles, tutorials and ideas about software engineering and technology.",
-        "poweredBy": "Powered by Dil Ka Blog"
+        "poweredBy": "Powered by Dil Ka Blog",
+        "allEntriesDescription": "A collection of thoughts, stories and moments."
     },
     "language": {
         "english": "English",
@@ -43,6 +45,9 @@
         "featuredArticle": "FEATURED ARTICLE",
         "latestArticles": "Latest Articles",
         "article": "ARTICLE",
-        "topics": "Topics"
+        "topics": "Topics",
+        "journal": "A PERSONAL JOURNAL",
+        "latestEntries": "Recent entries",
+        "aboutThisEntry": "About this entry"
     }
 }

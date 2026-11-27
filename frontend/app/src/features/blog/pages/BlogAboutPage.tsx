@@ -5,6 +5,7 @@ import { mockBlogs } from "../data/mockBlogs";
 
 import PoetryAboutPage from "../../templates/poetry/pages/PoetryAboutPage";
 import TechnicalAboutPage from "../../templates/technical/pages/TechnicalAboutPage";
+import JournalAboutPage from "../../templates/journal/pages/JournalAboutPage";
 
 function BlogAboutPage() {
   const { blogSlug } = useParams();
@@ -24,7 +25,7 @@ function BlogAboutPage() {
     case "technical":
       return <TechnicalAboutPage blog={blog} />
     case "journal":
-      return <div>This template is coming soon.</div>;
+      return <JournalAboutPage blog={blog} />;
 
     default:
       return <div>Unsupported blog template.</div>;

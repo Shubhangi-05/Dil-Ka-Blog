@@ -10,6 +10,7 @@ import { mockPosts } from "../data/mockPosts";
 
 import PoetryTagPage from "../../templates/poetry/pages/PoetryTagPage";
 import TechnicalTagPage from "../../templates/technical/pages/TechnicalTagPage";
+import JournalTagPage from "../../templates/journal/pages/JournalTagPage";
 
 function BlogTagPage() {
   const { blogSlug, tag } = useParams();
@@ -70,8 +71,7 @@ function BlogTagPage() {
         <TechnicalTagPage blog={blog} tag={tag ?? ""} posts={localizedPosts} />
       )
     case "journal":
-      return <div>This template is coming soon.</div>;
-
+      return <JournalTagPage blog={blog} posts={localizedPosts} />;
     default:
       return <div>Unsupported blog template.</div>;
   }

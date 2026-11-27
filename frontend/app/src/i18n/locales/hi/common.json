@@ -14,7 +14,8 @@
         "cancel": "रद्द करें",
         "readLatestPost": "ताज़ा रचना पढ़ें",
         "exploreArticles": "लेख पढ़ें",
-        "readArticle": "लेख पढ़ें"
+        "readArticle": "लेख पढ़ें",
+        "viewAllPosts": "सभी लेख देखें"
     },
     "messages": {
         "pageNotFound": "पेज नहीं मिला",
@@ -25,7 +26,8 @@
         "postsForTopic": "{{tag}} से जुड़ी रचनाएँ और विचार",
         "noPostsForTopic": "इस विषय पर अभी कोई रचना उपलब्ध नहीं है।",
         "allArticlesDescription": "सॉफ्टवेयर इंजीनियरिंग और टेक्नोलॉजी से जुड़े लेख, ट्यूटोरियल और विचार पढ़ें।",
-        "poweredBy": "Dil Ka Blog द्वारा संचालित"
+        "poweredBy": "Dil Ka Blog द्वारा संचालित",
+        "allEntriesDescription": "विचारों, कहानियों और यादगार पलों का संग्रह।"
     },
     "language": {
         "english": "अंग्रेज़ी",
@@ -43,6 +45,9 @@
         "featuredArticle": "विशेष लेख",
         "latestArticles": "नवीनतम लेख",
         "article": "लेख",
-        "topics": "विषय"
+        "topics": "विषय",
+        "journal": "एक निजी डायरी",
+        "latestEntries": "हाल की प्रविष्टियाँ",
+        "aboutThisEntry": "इस लेख के बारे में"
     }
 }
